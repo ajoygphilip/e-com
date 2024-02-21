@@ -1,15 +1,26 @@
 import { useState } from 'react'
+import Header from './components/header'
+import Footer from './components/footer'
+
 
 
 function App() {
  
 
   return (
-         
-    <>
-    <h2 className="bg-red-300 text-black pt-1 pb-1 text-center">Hello World React Tailwind</h2>
-    </>
+    <>   
+    <Header/>
+
+    <body className='bg-green-300 min-h-96'>
+      
+    </body>
+
+   
+    <Footer />
+
+    </>  
   )
+   
 }
 
 export default App
