@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 export default function Header(){
     return (
     <header> 
@@ -6,12 +7,14 @@ export default function Header(){
       <ul className='flex gap-4 self-end'>
         <li>Create an account </li>
         <li>Sign </li>
-        <li> My Cart </li>
+        <li> <Link to="/cart"> My Cart </Link> </li>
       </ul>
      </div>
 
      <div className='flex items-center justify-around gap-4 pl-24 pr-24  p-4 max-h-[75px]'>
-        <img src="./assets/logo.svg" alt="logo" className='size-44 ' />
+        <Link to="/">
+            <img src="./assets/logo.svg" alt="logo" className='size-44 ' />
+        </Link>
 
 
         <form action="/" method="get" className=''>
