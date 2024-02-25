@@ -2,10 +2,12 @@ import { useState, useEffect, useRef, useCallback } from 'react'
 import ProductCard from '../components/productCard'
 import fetchProducts from '../scripts/fetchProducts'
 import ProductLoadingCard from '../components/productLoadingCard'
+import { Link } from 'react-router-dom'
 
 export default function Home() {
   const [products, setProducts] = useState([])
   const [loading, setLoading] = useState(true)
+  const [errors, setErrors] = useState(null)
 
   let nextPage = useRef(1)
   let observer = useRef()
@@ -25,37 +27,48 @@ export default function Home() {
   function updateProducts() {
     setLoading(true)
 
-    fetchProducts(nextPage.current).then(productsData => {
-      setProducts(prevProducts => {
-        const uniqueProducts = productsData.products.filter(
-          newProduct =>
-            !prevProducts.find(
-              existingProduct => existingProduct.id === newProduct.id
-            )
-        )
-        return [...prevProducts, ...uniqueProducts]
+    fetchProducts(nextPage.current)
+      .then(productsData => {
+        setProducts(prevProducts => {
+          const uniqueProducts = productsData.products.filter(
+            newProduct =>
+              !prevProducts.find(
+                existingProduct => existingProduct.id === newProduct.id
+              )
+          )
+          return [...prevProducts, ...uniqueProducts]
+        })
+        hasMorePages.current = productsData.products.length > 0
+        nextPage.current = nextPage.current + 1
+        setLoading(false)
       })
-      hasMorePages.current = productsData.products.length > 0
-      nextPage.current = nextPage.current + 1
-      setLoading(false)
-    })
+      .catch(err => setErrors(true))
   }
 
   useEffect(() => {
     updateProducts()
   }, [])
 
+  if (errors) {
+    return (
+      <div className="flex flex-wrap justify-center items-center h-48 md:h-64 lg:h-80 xl:h-96 gap-4 md:gap-6 lg:gap-8 xl:gap-10 pl-4 md:pl-8 pr-4 md:pr-8 p-2 md:p-4">
+        Something Went wrong...
+      </div>
+    )
+  }
+
   return (
     <div className=" flex flex-wrap gap-[10px] pl-24 pr-24 p-8">
       {products.map((product, index, products) => {
         return (
-          <ProductCard
-            outerRef={index + 1 === products.length ? onInterception : null}
-            key={product.id}
-            title={product.title}
-            price={product.price}
-            image={product.thumbnail}
-          />
+          <Link key={product.id} to={`${product.id}`}>
+            <ProductCard
+              outerRef={index + 1 === products.length ? onInterception : null}
+              title={product.title}
+              price={product.price}
+              image={product.thumbnail}
+            />
+          </Link>
         )
       })}
       {loading && <ProductLoadingCard />}
