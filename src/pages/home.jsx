@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
-import ProductCard from '../components/productCard'
+import ProductCard from '../components/ProductCard'
 import fetchProducts from '../scripts/fetchProducts'
-import ProductLoadingCard from '../components/productLoadingCard'
+import ProductLoadingCard from '../components/ProductLoadingCard'
 import { Link } from 'react-router-dom'
 
 export default function Home() {
@@ -58,10 +58,10 @@ export default function Home() {
   }
 
   return (
-    <div className=" flex flex-wrap gap-[10px] pl-24 pr-24 p-8">
+    <div className=" flex flex-wrap justify-around items-center gap-4  pl-4 pr-4 sm:pl-8 sm:pr-8 p-2 sm:p-4 ">
       {products.map((product, index, products) => {
         return (
-          <Link key={product.id} to={`${product.id}`}>
+          <Link key={product.id} to={`#`}>
             <ProductCard
               outerRef={index + 1 === products.length ? onInterception : null}
               title={product.title}

@@ -1,8 +1,8 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Layout from './components/layout'
-import Home from './pages/home'
-import Cart from './pages/cart'
-import ProductDetail from './components/productDetail'
+import Layout from './pages/Layout'
+import Home from './pages/Home'
+import Cart from './pages/Cart'
+import ProductDetail from './pages/ProductDetail'
 
 function App() {
   return (

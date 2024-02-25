@@ -2,7 +2,7 @@ export default function ProductCard({ title, price, image, outerRef }) {
   return (
     <div
       ref={outerRef}
-      className=" w-[230px] p-4 h-[270px] flex flex-col gap-[8px] justify-center items-center bg-white border hover:shadow-xl transition ease-in-out delay-100"
+      className="productCard w-60 p-4 h-68 flex flex-col gap-[8px] justify-center items-center bg-white border hover:shadow-xl transition ease-in-out delay-100"
     >
       <img className="max-w-[200px] max-h-[200px]" src={image} alt="" />
       <p className="self-start text-[12px]">
