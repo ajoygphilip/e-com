@@ -61,7 +61,7 @@ export default function Home() {
     <div className=" flex flex-wrap justify-around items-center gap-4  pl-4 pr-4 sm:pl-8 sm:pr-8 p-2 sm:p-4 ">
       {products.map((product, index, products) => {
         return (
-          <Link key={product.id} to={`#`}>
+          <Link key={product.id} to={`${product.id}`}>
             <ProductCard
               outerRef={index + 1 === products.length ? onInterception : null}
               title={product.title}
