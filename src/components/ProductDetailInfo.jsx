@@ -20,7 +20,9 @@ function AddToCartButton(props) {
     >
       <input
         className="bg-white p-1 md:p-2 "
-        type="text"
+        type="number"
+        step="1"
+        max={props.stock}
         id="header-search"
         placeholder={`${props.stock} remaining`}
         name="s"
