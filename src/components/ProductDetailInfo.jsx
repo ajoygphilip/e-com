@@ -27,7 +27,10 @@ function AddToCartButton(props) {
         placeholder={`${props.stock} remaining`}
         name="s"
       />
-      <button className="bg-[#16BA9A] text-white p-2 flex justify-center item-center">
+      <button
+        className="bg-[#16BA9A] text-white p-2 flex justify-center item-center"
+        type="button"
+      >
         <div className="flex items-center justify-center">
           <img className=" max-h-10 m-0" src="assets/cart.png" />
           <div className="flex flex-col">
