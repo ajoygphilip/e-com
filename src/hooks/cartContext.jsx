@@ -9,6 +9,12 @@ export default function CartContextProvider({ children }) {
     setCart(initializeCart())
   }, [])
 
+  useEffect(() => {
+    if (cart) {
+      localStorage.setItem('gapbargaincart', JSON.stringify(cart))
+    }
+  }, [cart])
+
   function addToCart(productId, quantity) {
     setCart(prevCart => {
       if (productId in prevCart) {
@@ -16,26 +22,45 @@ export default function CartContextProvider({ children }) {
           ...prevCart,
           [productId]: prevCart[productId] + quantity,
         }
-        localStorage.setItem('gapbargaincart', JSON.stringify(newCart))
         return newCart
       } else {
         const newCart = { ...prevCart, [productId]: quantity }
-        localStorage.setItem('gapbargaincart', JSON.stringify(newCart))
         return newCart
       }
     })
   }
 
+  function updateCartItemCount(productId, newCount) {
+    if (productId in cart) {
+      setCart(prevCart => ({
+        ...prevCart,
+        [productId]: newCount,
+      }))
+    }
+  }
+
+  function removeCartItem(productId) {
+    if (productId in cart) {
+      setCart(prevCart => {
+        const updatedCart = { ...prevCart }
+        delete updatedCart[productId]
+        return updatedCart
+      })
+    }
+  }
+
   return (
-    <CartContext.Provider value={{ cart, addToCart }}>
+    <CartContext.Provider
+      value={{ cart, addToCart, updateCartItemCount, removeCartItem }}
+    >
       {children}
     </CartContext.Provider>
   )
 }
 
 function initializeCart() {
-  if (localStorage.getItem('gapbargaincart') === null) {
-    localStorage.setItem('gapbargaincart', JSON.stringify([]))
+  if (!localStorage.getItem('gapbargaincart')) {
+    localStorage.setItem('gapbargaincart', JSON.stringify({}))
     return {}
   } else {
     return JSON.parse(localStorage.getItem('gapbargaincart'))
