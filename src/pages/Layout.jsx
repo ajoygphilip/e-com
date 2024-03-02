@@ -7,7 +7,7 @@ export default function Layout() {
   return (
     <CartContextProvider>
       <Header />
-      <main>
+      <main className="px-8">
         <Outlet />
       </main>
       <Footer />
