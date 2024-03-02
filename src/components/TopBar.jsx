@@ -16,7 +16,7 @@ export default function TopBar() {
 
         <Link
           to="cart"
-          className="relative inline-flex items-center text-sm font-medium text-center text-white rounded-lg focus:ring-4 focus:outline-none"
+          className="relative inline-flex items-center text-sm font-medium text-center text-white rounded-lg  focus:outline-none"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
 import ProductCard from '../components/ProductCard'
-import fetchProducts from '../scripts/fetchProducts'
+import fetchProducts from '../utils/fetchProducts'
 import ProductLoadingCard from '../components/ProductLoadingCard'
 import { Link } from 'react-router-dom'
 
