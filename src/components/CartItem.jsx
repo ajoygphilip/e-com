@@ -2,19 +2,10 @@ import { useContext, useEffect, useState } from 'react'
 import { getProduct } from '../pages/Cart'
 import { CartContext } from '../hooks/cartContext'
 
-export function CartItem({ id, qty }) {
-  const [product, setProduct] = useState(null)
-  const [loading, setLoading] = useState(true)
+export function CartItem({ product, qty }) {
   const { updateCartItemCount, removeCartItem } = useContext(CartContext)
 
-  useEffect(() => {
-    getProduct(parseInt(id)).then(data => {
-      setProduct(data)
-      setLoading(false)
-    })
-  }, [])
-
-  if (loading) {
+  if (!product) {
     return <div>Loading...</div>
   }
   return (
