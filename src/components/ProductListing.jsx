@@ -38,6 +38,7 @@ export default function ProductListing({ url }) {
           )
           return [...prevProducts, ...uniqueProducts]
         })
+        setLoading(false)
         hasMorePages.current = productsData.products.length > 0
         nextPage.current = nextPage.current + 1
       })
@@ -45,7 +46,6 @@ export default function ProductListing({ url }) {
         setErrors(true)
         console.error('Error updating products:', error)
       })
-      .finally(() => setLoading(false))
   }
 
   useEffect(() => {
@@ -61,11 +61,14 @@ export default function ProductListing({ url }) {
   }, [url])
 
   if (errors) {
-    console.log(products)
     return <div className="p-16 text-center ">Something Went wrong...</div>
   }
 
-  return (
+  if (products.length === 0) {
+    return <div className="p-16 text-center ">No Products Found...</div>
+  }
+
+  if (products)
     <div className=" grid grid-cols-5 gap-4  pl-4 pr-4 sm:pl-8 sm:pr-8 p-2 sm:p-4 ">
       {products.map((product, index, products) => {
         return (
@@ -81,5 +84,4 @@ export default function ProductListing({ url }) {
       })}
       {loading && <ProductLoadingCard />}
     </div>
-  )
 }
