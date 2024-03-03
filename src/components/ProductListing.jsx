@@ -42,7 +42,8 @@ export default function ProductListing({ url }) {
         nextPage.current = nextPage.current + 1
         setLoading(false)
       })
-      .catch(err => setErrors(true))
+      .catch(setErrors(true))
+      .finally(setLoading(false))
   }
 
   useEffect(() => {
@@ -58,11 +59,7 @@ export default function ProductListing({ url }) {
   }, [url])
 
   if (errors) {
-    return (
-      <div className="flex flex-wrap justify-center items-center h-48 md:h-64 lg:h-80 xl:h-96 gap-4 md:gap-6 lg:gap-8 xl:gap-10 pl-4 md:pl-8 pr-4 md:pr-8 p-2 md:p-4">
-        Something Went wrong...
-      </div>
-    )
+    return <div className="p-16 text-center ">Something Went wrong...</div>
   }
 
   return (

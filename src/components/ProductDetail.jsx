@@ -9,6 +9,7 @@ export default function ProductDetail() {
 
   const [product, setProduct] = useState([])
   const [loading, setLoading] = useState(true)
+  const [errors, setErrors] = useState(false)
 
   let { id } = useParams()
   useEffect(() => {
@@ -16,10 +17,13 @@ export default function ProductDetail() {
     fetch(`https://dummyjson.com/products/${id}`)
       .then(response => response.json())
       .then(productData => setProduct(productData))
+      .catch(setErrors(true))
       .finally(setLoading(false))
   }, [id])
 
-  if (loading) return <p>Loading Product</p>
+  if (loading) return <div className="p-16 text-center">Loading Product</div>
+
+  if (errors) return <div className="p-16 text-center">Product not found</div>
   else {
     return (
       <div className=" p-4 flex gap-16 bg-white ">
