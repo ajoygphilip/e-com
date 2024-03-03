@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { LoremIpsum } from 'lorem-ipsum'
-import { ProductDetailImages } from '../components/ProductDetailImages'
-import { ProductDetailInfo } from '../components/ProductDetailInfo'
+import { ProductDetailImages } from './ProductDetailImages'
+import { ProductDetailInfo } from './ProductDetailInfo'
 
 export default function ProductDetail() {
   const lorem = new LoremIpsum()

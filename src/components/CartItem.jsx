@@ -1,5 +1,4 @@
-import { useContext, useEffect, useState } from 'react'
-import { getProduct } from '../pages/Cart'
+import { useContext } from 'react'
 import { CartContext } from '../hooks/cartContext'
 
 export function CartItem({ product, qty }) {
@@ -16,7 +15,7 @@ export function CartItem({ product, qty }) {
             className="size-2 p-0 m-0 self-center cursor-pointer"
             src="assets/delete-button.svg"
             alt="Remove Item"
-            onClick={e => {
+            onClick={() => {
               removeCartItem(product.id)
             }}
           />

@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from 'react'
 import { CartContext } from '../hooks/cartContext'
 import { EmptyCartSummary } from '../components/EmptyCartSummary'
 import { CartSummary } from '../components/CartSummary'
+import { getProduct } from '../utils/getProduct'
 
 export default function Cart() {
   const { cart } = useContext(CartContext)
@@ -27,10 +28,4 @@ export default function Cart() {
   } else {
     return <CartSummary cart={cart} cartItems={cartItems} />
   }
-}
-
-export async function getProduct(id) {
-  const res = await fetch(`https://dummyjson.com/products/${id}`)
-  const data = await res.json()
-  return data
 }
