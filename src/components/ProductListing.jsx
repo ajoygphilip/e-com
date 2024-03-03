@@ -68,20 +68,23 @@ export default function ProductListing({ url }) {
     return <div className="p-16 text-center ">No Products Found...</div>
   }
 
-  if (products)
-    <div className=" grid grid-cols-5 gap-4  pl-4 pr-4 sm:pl-8 sm:pr-8 p-2 sm:p-4 ">
-      {products.map((product, index, products) => {
-        return (
-          <Link key={product.id} to={`/${product.id}`}>
-            <ProductCard
-              outerRef={index + 1 === products.length ? onInterception : null}
-              title={product.title}
-              price={product.price}
-              image={product.thumbnail}
-            />
-          </Link>
-        )
-      })}
-      {loading && <ProductLoadingCard />}
-    </div>
+  if (products) {
+    return (
+      <div className=" grid grid-cols-5 gap-4  pl-4 pr-4 sm:pl-8 sm:pr-8 p-2 sm:p-4 ">
+        {products.map((product, index, products) => {
+          return (
+            <Link key={product.id} to={`/${product.id}`}>
+              <ProductCard
+                outerRef={index + 1 === products.length ? onInterception : null}
+                title={product.title}
+                price={product.price}
+                image={product.thumbnail}
+              />
+            </Link>
+          )
+        })}
+        {loading && <ProductLoadingCard />}
+      </div>
+    )
+  }
 }
