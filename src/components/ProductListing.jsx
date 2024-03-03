@@ -49,6 +49,14 @@ export default function ProductListing({ url }) {
     updateProducts()
   }, [])
 
+  useEffect(() => {
+    setProducts([])
+    nextPage.current = 1
+    observer.current = null
+    hasMorePages.current = false
+    updateProducts()
+  }, [url])
+
   if (errors) {
     return (
       <div className="flex flex-wrap justify-center items-center h-48 md:h-64 lg:h-80 xl:h-96 gap-4 md:gap-6 lg:gap-8 xl:gap-10 pl-4 md:pl-8 pr-4 md:pr-8 p-2 md:p-4">
