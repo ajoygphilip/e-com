@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 export default function ProductListing({ url }) {
   const [products, setProducts] = useState([])
   const [loading, setLoading] = useState(true)
-  const [errors, setErrors] = useState(null)
+  const [errors, setErrors] = useState(false)
 
   let nextPage = useRef(1)
   let observer = useRef()
@@ -40,10 +40,12 @@ export default function ProductListing({ url }) {
         })
         hasMorePages.current = productsData.products.length > 0
         nextPage.current = nextPage.current + 1
-        setLoading(false)
       })
-      .catch(setErrors(true))
-      .finally(setLoading(false))
+      .catch(error => {
+        setErrors(true)
+        console.error('Error updating products:', error)
+      })
+      .finally(() => setLoading(false))
   }
 
   useEffect(() => {
@@ -59,6 +61,7 @@ export default function ProductListing({ url }) {
   }, [url])
 
   if (errors) {
+    console.log(products)
     return <div className="p-16 text-center ">Something Went wrong...</div>
   }
 
