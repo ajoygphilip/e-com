@@ -1,8 +1,8 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Layout from './pages/Layout'
+import Layout from './components/layout/Layout.jsx'
 import Home from './pages/Home.jsx'
 import Cart from './pages/Cart'
-import ProductDetail from './components/ProductDetail'
+import ProductDetail from './components/content/productdetail/ProductDetail.jsx'
 import Category from './pages/Category.jsx'
 
 function App() {

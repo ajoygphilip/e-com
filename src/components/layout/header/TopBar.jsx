@@ -1,6 +1,6 @@
 import { useContext } from 'react'
 import { Link } from 'react-router-dom'
-import { CartContext } from '../hooks/cartContext'
+import { CartContext } from '../../../hooks/cartContext'
 
 export default function TopBar() {
   const { cart } = useContext(CartContext)

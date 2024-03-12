@@ -1,7 +1,7 @@
 import { useContext } from 'react'
-import { CartContext } from '../hooks/cartContext'
+import { CartContext } from '../../hooks/cartContext'
 
-export function CartItem({ product, qty }) {
+export default function CartItem({ product, qty }) {
   const { updateCartItemCount, removeCartItem } = useContext(CartContext)
 
   if (!product) {

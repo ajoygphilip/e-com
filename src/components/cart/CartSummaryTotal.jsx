@@ -1,5 +1,6 @@
-import { CartCheckoutButton } from './CartCheckoutButton'
-export function CartSummaryTotal({ cartItemCount, cartTotalPrice }) {
+import CartCheckoutButton from './CartCheckoutButton'
+
+export default function CartSummaryTotal({ cartItemCount, cartTotalPrice }) {
   return (
     <div className="flex flex-col pr-[20%] bg-[#E2E3E7] py-4 my-4">
       <p className="self-end">

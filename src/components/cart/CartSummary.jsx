@@ -1,9 +1,9 @@
-import { CartSummaryHeader } from '../components/CartSummaryHeader'
-import { CartItem } from '../components/CartItem'
-import { CartSummaryTotal } from '../components/CartSummaryTotal'
-import { getCartTotal, getCartTotalPrice } from '../utils/CartUtils'
+import CartSummaryHeader from './CartSummaryHeader'
+import CartItem from './CartItem'
+import CartSummaryTotal from './CartSummaryTotal'
+import { getCartTotal, getCartTotalPrice } from '../../utils/CartUtils'
 
-export function CartSummary(props) {
+export default function CartSummary(props) {
   return (
     <div className="p-2 m-2 flex flex-col">
       <CartSummaryHeader />

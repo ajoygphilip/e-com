@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
 import ProductCard from './ProductCard'
-import getProducts from '../utils/getProducts'
+import getProducts from '../../../utils/getProducts'
 import ProductLoadingCard from './ProductLoadingCard'
 import { Link } from 'react-router-dom'
 

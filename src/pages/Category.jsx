@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom'
-import ProductListing from '../components/ProductListing'
+import ProductListing from '../components/content/productlisting/ProductListing'
 
 export default function Category() {
   let { category } = useParams()

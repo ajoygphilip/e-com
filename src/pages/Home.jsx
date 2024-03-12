@@ -1,4 +1,4 @@
-import ProductListing from '../components/ProductListing'
+import ProductListing from '../components/content/productlisting/ProductListing'
 
 export default function Home() {
   const url = 'https://dummyjson.com/products'

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 
-export function EmptyCartSummary() {
+export default function EmptyCartSummary() {
   return (
     <div className="flex items-center">
       <img src="assets/empty-cart.png" alt="" />

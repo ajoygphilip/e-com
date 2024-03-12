@@ -1,4 +1,4 @@
-export function CartSummaryHeader() {
+export default function CartSummaryHeader() {
   return (
     <>
       <h1 className="text-lg py-2  text-[#484848] font-bold">Your Cart </h1>

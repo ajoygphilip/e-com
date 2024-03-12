@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from 'react'
 import { CartContext } from '../hooks/cartContext'
-import { EmptyCartSummary } from '../components/EmptyCartSummary'
-import { CartSummary } from '../components/CartSummary'
+import EmptyCartSummary from '../components/cart/EmptyCartSummary'
+import CartSummary from '../components/cart/CartSummary'
 import { getProduct } from '../utils/getProduct'
 
 export default function Cart() {
