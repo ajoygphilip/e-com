@@ -3,4 +3,4 @@
 - React
 - Tailwind
 
-[View live demo](https://greetgenie.vercel.app/)
+[View live demo](https://gapbargain.vercel.app/)
