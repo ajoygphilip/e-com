@@ -43,7 +43,6 @@ export default function NavBar() {
 }
 
 function NavBarItem({ text: category }) {
-  console.log(category);
   return (
     <NavLink to={`/products/category/${category.slug}`}>
       <div className="uppercase font-[16px] p-1.5 cursor-pointer flex items-center justify-center hover:bg-[#15B394] hover:underline transition ease-in-out delay-100 text-white ">
