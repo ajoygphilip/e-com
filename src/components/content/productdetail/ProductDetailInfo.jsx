@@ -31,6 +31,7 @@ function AddToCartButton(props) {
             props.setMessage('Please enter a valid quantity.');
             return;
           }
+          props.setMessage('');
           addToCart(props.productId, inputValue);
           input.value = null;
         }}
