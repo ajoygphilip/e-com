@@ -42,34 +42,30 @@ export default function NavBar() {
   )
 }
 
-function NavBarItem({ text }) {
+function NavBarItem({ text: category }) {
+  console.log(category);
   return (
-    <NavLink to={`/products/${text}`}>
+    <NavLink to={`/products/category/${category.slug}`}>
       <div className="uppercase font-[16px] p-1.5 cursor-pointer flex items-center justify-center hover:bg-[#15B394] hover:underline transition ease-in-out delay-100 text-white ">
-        {text}
+        {category.name}
       </div>
     </NavLink>
-  )
+  );
 }
 
 function NavDropDown({ categories }) {
   return (
     <div className="dropdown   bg-[#15B394]">
-      <button className="dropbtn px-5 font-[16px] py-4  text-white uppercase">
-        All Products
-      </button>
+      <button className="dropbtn px-5 font-[16px] py-4  text-white uppercase">All Products</button>
       <div className="dropdown-content flex flex-col bg-white">
         {categories.map((category, index) => (
-          <div
-            key={index}
-            className=".navlink  font-[12px] p-1.5 pr-2 hover:bg-[#EEEEEE] block"
-          >
-            <NavLink to={`/products/${category}`} className="uppercase">
-              {category}
+          <div key={index} className=".navlink  font-[12px] p-1.5 pr-2 hover:bg-[#EEEEEE] block">
+            <NavLink to={`/products/category/${category.slug}`} className="uppercase">
+              {category.name}
             </NavLink>
           </div>
         ))}
       </div>
     </div>
-  )
+  );
 }
