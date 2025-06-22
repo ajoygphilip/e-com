@@ -49,7 +49,7 @@ function NavDropDown({ categories }) {
       <div className="dropdown-content flex flex-col bg-white">
         {categories.map((category, index) => (
           <div key={index} className=".navlink  font-[12px] p-1.5 pr-2 hover:bg-[#EEEEEE] block">
-            <NavLink to={`/products/category/${category.slug}`} className="uppercase">
+            <NavLink to={`/category/${category.slug}`} className="uppercase">
               {category.name}
             </NavLink>
           </div>
