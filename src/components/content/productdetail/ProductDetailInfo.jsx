@@ -19,7 +19,7 @@ function AddToCartButton(props) {
 
   return (
     <form className="flex border border-slate-200 " action="/" method="get">
-      <input className="bg-white p-1 md:p-2 " type="number" id="qty-input" placeholder={`enter count`} min={1} max={props.stock} />
+      <input className="bg-white p-1 md:p-2 " type="number" id="qty-input" placeholder={`1`} min={1} max={props.stock} />
       <button
         className="bg-[#16BA9A] text-white p-2 flex justify-center item-center"
         onClick={e => {
@@ -37,9 +37,8 @@ function AddToCartButton(props) {
         }}
       >
         <div className="flex items-center justify-center">
-          <img className=" max-h-10 m-0" src="assets/cart.png" />
           <div className="flex flex-col">
-            <p className=" text-[12px]">Add to Cart</p>
+            <p className="">Add to Cart</p>
           </div>
         </div>
       </button>
